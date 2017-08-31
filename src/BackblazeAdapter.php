@@ -230,4 +230,15 @@ class BackblazeAdapter extends AbstractAdapter {
 
         return $normalized;
     }
+
+    /**
+     * Get the URL for the file at the given path.
+     *
+     * @param  string  $path
+     * @return string
+     */
+    public function getUrl($path)
+    {
+        return $this->client->downloadByname($path, $this->bucketName);
+    }
 }
